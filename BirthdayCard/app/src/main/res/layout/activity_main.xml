@@ -5,21 +5,32 @@
     android:layout_height="match_parent"
     tools:context="com.kamyshovcorp.birthdaycard.MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Happy birthday, Android" />
-
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
         android:src="@drawable/android_party" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
+        android:fontFamily="sans-serif-light"
+        android:paddingLeft="20dp"
+        android:paddingTop="20dp"
+        android:text="Happy birthday, Android"
+        android:textColor="@android:color/white"
+        android:textSize="36dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:text="From Sergey" />
+        android:layout_alignParentRight="true"
+        android:fontFamily="sans-serif-light"
+        android:paddingBottom="20dp"
+        android:paddingRight="20dp"
+        android:text="From Sergey"
+        android:textColor="@android:color/white"
+        android:textSize="36dp" />
 
 </RelativeLayout>
