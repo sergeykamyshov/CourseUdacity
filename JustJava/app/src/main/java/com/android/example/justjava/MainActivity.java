@@ -2,7 +2,9 @@ package com.android.example.justjava;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.TextView;
 
 import java.text.NumberFormat;
@@ -24,9 +26,17 @@ public class MainActivity extends AppCompatActivity {
      * This method is called when the order button is clicked.
      */
     public void submitOrder(View view) {
-        int price = quantity * 5;
-        String message = "Total: $" + price + "\n" + "Thank you!";
+        CheckBox whippedCreamCheckBox = (CheckBox) findViewById(R.id.whipped_cream_checkbox);
+        boolean hasWhippedCream = whippedCreamCheckBox.isChecked();
+        Log.i("MainActivity", "Has Whipped Cream: " + hasWhippedCream);
+
+        int price = calculatePrice();
+        String message = createOrderSummary(price, hasWhippedCream);
         displayMessage(message);
+    }
+
+    private int calculatePrice() {
+        return quantity * 5;
     }
 
     /**
@@ -42,16 +52,16 @@ public class MainActivity extends AppCompatActivity {
      * This method displays the given price on the screen.
      */
     private void displayPrice(int number) {
-        TextView priceTextView = (TextView) findViewById(R.id.price_text_view);
-        priceTextView.setText(NumberFormat.getCurrencyInstance().format(number));
+        TextView orderSummaryTextView = (TextView) findViewById(R.id.order_summary_text_view);
+        orderSummaryTextView.setText(NumberFormat.getCurrencyInstance().format(number));
     }
 
     /**
      * This method displays the given text on the screen.
      */
     private void displayMessage(String message) {
-        TextView priceTextView = (TextView) findViewById(R.id.price_text_view);
-        priceTextView.setText(message);
+        TextView orderSummaryTextView = (TextView) findViewById(R.id.order_summary_text_view);
+        orderSummaryTextView.setText(message);
     }
 
     public void increment(View view) {
@@ -62,5 +72,13 @@ public class MainActivity extends AppCompatActivity {
     public void decrement(View view) {
         quantity = quantity - 1;
         display(quantity);
+    }
+
+    private String createOrderSummary(int price, boolean addWhippedCream) {
+        return "Name: Sergey"
+                + "\nAdd Whipped Cream: " + addWhippedCream
+                + "\nQuantity: " + quantity
+                + "\nTotal: $" + price
+                + "\nThank you!";
     }
 }
