@@ -27,7 +27,8 @@
         style="@style/CategoryStyle"
         android:background="@color/category_numbers"
         android:text="@string/category_numbers"
-        android:onClick="onNumbersList"/>
+        android:onClick="onNumbersList"
+        android:layout_height="88dp" />
 
     <TextView
         android:id="@+id/family"
