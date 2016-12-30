@@ -15,6 +15,14 @@ public class PhrasesActivity extends AppCompatActivity {
 
     private MediaPlayer mMediaPlayer;
 
+    private MediaPlayer.OnCompletionListener mOnCompletionListener = new MediaPlayer.OnCompletionListener() {
+        @Override
+        public void onCompletion(MediaPlayer mp) {
+            // освобождаем ресурсы после окончания проигрывания
+            releaseMediaPlayerResources();
+        }
+    };
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,9 +47,25 @@ public class PhrasesActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                // перед проигрыванием нового аудио тоже нужно освободить ресурсы
+                releaseMediaPlayerResources();
+
                 mMediaPlayer = MediaPlayer.create(getApplicationContext(), words.get(position).getAudioResourceId());
                 mMediaPlayer.start();
+
+                // устанавливаем слушателя, только после того как mMediaPlayer будет создан
+                mMediaPlayer.setOnCompletionListener(mOnCompletionListener);
             }
         });
+    }
+
+    /**
+     * Метод освобождает ресурсы MediaPlayer
+     */
+    protected void releaseMediaPlayerResources() {
+        if (mMediaPlayer != null) {
+            mMediaPlayer.release();
+            mMediaPlayer = null;
+        }
     }
 }
