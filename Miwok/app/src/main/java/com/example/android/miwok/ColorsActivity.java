@@ -57,6 +57,12 @@ public class ColorsActivity extends AppCompatActivity {
         });
     }
 
+    @Override
+    protected void onStop() {
+        super.onStop();
+        releaseMediaPlayerResources();
+    }
+
     /**
      * Метод освобождает ресурсы MediaPlayer
      */
