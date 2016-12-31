@@ -1,8 +1,8 @@
 package com.android.example.simplemediaplayerexample;
 
 import android.media.MediaPlayer;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
@@ -29,7 +29,13 @@ public class MainActivity extends AppCompatActivity {
     public void stop(View view) {
         if (mMediaPlayer != null) {
             mMediaPlayer.stop();
-            mMediaPlayer.reset();
+            releaseMediaPlayer();
+        }
+    }
+
+    public void releaseMediaPlayer() {
+        if (mMediaPlayer != null) {
+            mMediaPlayer.release();
             mMediaPlayer = null;
         }
     }
