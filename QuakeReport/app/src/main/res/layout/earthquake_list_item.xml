@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal">
@@ -8,28 +9,23 @@
         android:id="@+id/magnitude_text_view"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="16dp"
         android:layout_weight="1"
-        android:text="7.2" />
+        android:padding="16dp"
+        tools:text="7.2" />
 
     <TextView
         android:id="@+id/place_text_view"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:layout_marginTop="16dp"
         android:layout_weight="1"
-        android:text="San Francisco" />
+        android:padding="16dp"
+        tools:text="San Francisco" />
 
     <TextView
         android:id="@+id/date_text_view"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginTop="16dp"
         android:layout_weight="1"
-        android:text="Jan 6, 2016" />
+        android:padding="16dp"
+        tools:text="Jan 6, 2016" />
 </LinearLayout>

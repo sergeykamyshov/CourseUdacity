@@ -11,24 +11,24 @@ import java.util.List;
 
 public class EarthquakeAdapter extends BaseAdapter {
 
-    private Context context;
-    private LayoutInflater inflater;
-    private List<Earthquake> earthquakes;
+    private Context mContext;
+    private LayoutInflater mInflater;
+    private List<Earthquake> mEarthquakes;
 
     public EarthquakeAdapter(Context context, List<Earthquake> earthquakes) {
-        this.context = context;
-        inflater = (LayoutInflater) this.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        this.earthquakes = earthquakes;
+        this.mContext = context;
+        mInflater = (LayoutInflater) this.mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        this.mEarthquakes = earthquakes;
     }
 
     @Override
     public int getCount() {
-        return earthquakes.size();
+        return mEarthquakes.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return earthquakes.get(position);
+        return mEarthquakes.get(position);
     }
 
     @Override
@@ -39,10 +39,10 @@ public class EarthquakeAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         if (convertView == null) {
-            convertView = inflater.inflate(R.layout.earthquake_list_item, parent, false);
+            convertView = mInflater.inflate(R.layout.earthquake_list_item, parent, false);
         }
 
-        Earthquake earthquake = earthquakes.get(position);
+        Earthquake earthquake = mEarthquakes.get(position);
 
         TextView magnitude = (TextView) convertView.findViewById(R.id.magnitude_text_view);
         magnitude.setText(earthquake.getMagnitude());
