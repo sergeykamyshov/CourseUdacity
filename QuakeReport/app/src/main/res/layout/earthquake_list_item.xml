@@ -14,7 +14,14 @@
         tools:text="7.2" />
 
     <TextView
-        android:id="@+id/place_text_view"
+        android:id="@+id/location_offset_text_view"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        tools:text="74km NW of" />
+
+    <TextView
+        android:id="@+id/primary_location_text_view"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"

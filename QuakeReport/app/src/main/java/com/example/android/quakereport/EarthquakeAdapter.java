@@ -49,14 +49,26 @@ public class EarthquakeAdapter extends BaseAdapter {
         TextView magnitude = (TextView) convertView.findViewById(R.id.magnitude_text_view);
         magnitude.setText(earthquake.getMagnitude());
 
-        TextView place = (TextView) convertView.findViewById(R.id.place_text_view);
-        place.setText(earthquake.getPlace());
+        String place = earthquake.getPlace();
+        String locationOffset = "";
+        String primaryLocation = "";
+        if (place.contains("of ")) {
+            int index = place.indexOf("of ");
+            int splitIndex = index + 3;
+            locationOffset = place.substring(0, splitIndex);
+            primaryLocation = place.substring(splitIndex, place.length() - 1);
+        } else {
+            locationOffset = "Near of ";
+            primaryLocation = place;
+        }
+        TextView locationOffsetTextView = (TextView) convertView.findViewById(R.id.location_offset_text_view);
+        locationOffsetTextView.setText(locationOffset);
+        TextView primaryLocationTextView = (TextView) convertView.findViewById(R.id.primary_location_text_view);
+        primaryLocationTextView.setText(primaryLocation);
 
         Date earthquakeDate = new Date(earthquake.getTimeInMilliseconds());
-
         TextView date = (TextView) convertView.findViewById(R.id.date_text_view);
         date.setText(getDateFormet(earthquakeDate));
-
         TextView time = (TextView) convertView.findViewById(R.id.time_text_view);
         time.setText(getTimeFormat(earthquakeDate));
 
