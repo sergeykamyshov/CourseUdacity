@@ -5,11 +5,13 @@ public class Earthquake {
     private double mMagnitude;
     private String mPlace;
     private long mTimeInMilliseconds;
+    private String mUrl;
 
-    public Earthquake(double magnitude, String place, long timeInMilliseconds) {
+    public Earthquake(double magnitude, String place, long timeInMilliseconds, String url) {
         this.mMagnitude = magnitude;
         this.mPlace = place;
         this.mTimeInMilliseconds = timeInMilliseconds;
+        this.mUrl = url;
     }
 
     public double getMagnitude() {
@@ -34,5 +36,13 @@ public class Earthquake {
 
     public void setTimeInMilliseconds(long timeInMilliseconds) {
         mTimeInMilliseconds = timeInMilliseconds;
+    }
+
+    public String getUrl() {
+        return mUrl;
+    }
+
+    public void setUrl(String url) {
+        mUrl = url;
     }
 }
