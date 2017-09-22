@@ -18,6 +18,7 @@ public class EarthquakeAdapter extends BaseAdapter {
 
     private Context mContext;
     private LayoutInflater mInflater;
+
     private List<Earthquake> mEarthquakes;
 
     public EarthquakeAdapter(Context context, List<Earthquake> earthquakes) {
@@ -132,5 +133,9 @@ public class EarthquakeAdapter extends BaseAdapter {
     private String getDateFormet(Date date) {
         SimpleDateFormat dateFormat = new SimpleDateFormat("LLL dd, yyyy");
         return dateFormat.format(date);
+    }
+
+    public void setEarthquakes(List<Earthquake> earthquakes) {
+        mEarthquakes = earthquakes;
     }
 }
