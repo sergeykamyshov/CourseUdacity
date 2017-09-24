@@ -33,6 +33,7 @@ public class QueryUtils {
     }
 
     public static List<Earthquake> fetchEearthquakeData(String param) {
+        Log.i(LOG_TAG, "fetchEearthquakeData");
         // Prepare URL
         URL url = QueryUtils.createUrl(param);
         // Perform network request
