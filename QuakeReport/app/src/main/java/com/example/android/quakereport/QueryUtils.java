@@ -1,5 +1,6 @@
 package com.example.android.quakereport;
 
+import android.os.SystemClock;
 import android.util.Log;
 
 import org.json.JSONArray;
